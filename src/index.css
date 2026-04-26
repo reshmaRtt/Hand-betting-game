@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply font-body text-ivory antialiased;
+  background:
+    radial-gradient(ellipse at top, #14683f 0%, #0b3d2e 60%, #06261c 100%);
+  background-attachment: fixed;
+  overscroll-behavior: none;
+}
+
+/* Subtle felt texture overlay on the whole app */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: radial-gradient(
+      rgba(255, 255, 255, 0.5) 1px,
+      transparent 1px
+    );
+  background-size: 4px 4px;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* Tile perspective context */
+.tile-3d {
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
